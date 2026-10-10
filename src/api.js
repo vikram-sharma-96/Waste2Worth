@@ -101,6 +101,7 @@ export const api = {
   redispatch: (id) => request(`/api/listings/${id}/dispatch`, { method: "POST" }),
   impact: () => request("/api/impact/summary"),
   certificate: (orgId) => request(`/api/impact/orgs/${orgId}/certificate`),
+  verifyCertificate: (certNo) => request(`/api/impact/verify/${encodeURIComponent(certNo)}`),
   orgs: () => request("/api/orgs"),
   createOrg: (body) => request("/api/orgs", { method: "POST", body }),
   dashboard: (orgId) => request(`/api/orgs/${orgId}/dashboard`),

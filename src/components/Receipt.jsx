@@ -4,7 +4,7 @@ export default function Receipt({ quote, title }) {
   return (
     <div className="receipt">
       <h3>{title || (quote.pooled ? `Pooled lot · ${quote.sellers} sellers` : "Your order")}</h3>
-      {quote.items.map((i) => (
+      {(quote?.items || []).map((i) => (
         <div className="r-row" key={i.listing_id}>
           <span className="row" style={{ gap: 8 }}>
             {i.color_hex && <span className="swatch" style={{ background: i.color_hex, width: 16, height: 16 }} />}

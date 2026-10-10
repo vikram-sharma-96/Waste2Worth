@@ -11,26 +11,31 @@ const MATCH_FIELDS = {
 };
 
 function PoolDiagram({ quote }) {
+  const items = quote.items || [];
+  const excluded = quote.excluded || [];
+  const allocated = quote.allocated ?? quote.allocated_quantity ?? 0;
+  const sellerCount = Array.isArray(quote.sellers) ? quote.sellers.length : (quote.sellers || items.length || 1);
+
   return (
     <div className="pool-diagram" style={{ margin: "8px 0 4px" }}>
       <div className="pool-sellers">
-        {quote.items.map((i) => (
+        {items.map((i) => (
           <Link to={`/listing/${i.listing_id}`} className="pool-seller" key={i.listing_id} style={{ textDecoration: "none" }}>
             {i.color_hex && <span className="swatch" style={{ background: i.color_hex }} />}
             <div style={{ minWidth: 0 }}><b>{fmtQty(i.quantity)} × {inr(i.unit_price)}</b>
               <div className="tiny muted">{i.distance_km} km{i.delta_e != null ? ` · ΔE ${i.delta_e}` : ""}</div></div>
           </Link>
         ))}
-        {quote.excluded.slice(0, 3).map((x) => (
+        {excluded.slice(0, 3).map((x) => (
           <div className="pool-seller excluded" key={x.listing_id} title={x.reason}>
             <span className="chip chip-bad">✕</span><div className="tiny">#{x.listing_id}: {x.reason}</div>
           </div>
         ))}
       </div>
       <div className="connector" />
-      <div className="pool-hub"><div><b>{fmtQty(quote.allocated)}</b><span>{quote.unit}{quote.shade_match_pct != null ? ` · ${Math.round(quote.shade_match_pct)}% shade match` : ""}</span></div></div>
+      <div className="pool-hub"><div><b>{fmtQty(allocated)}</b><span>{quote.unit}{quote.shade_match_pct != null ? ` · ${Math.round(quote.shade_match_pct)}% shade match` : ""}</span></div></div>
       <div className="connector" />
-      <div className="pool-buyer"><b style={{ fontFamily: "var(--display)", fontSize: 20 }}>You</b><div className="tiny">{quote.sellers} {quote.sellers === 1 ? "seller" : "sellers"} · 1 pickup</div></div>
+      <div className="pool-buyer"><b style={{ fontFamily: "var(--display)", fontSize: 20 }}>You</b><div className="tiny">{sellerCount} {sellerCount === 1 ? "seller" : "sellers"} · 1 pickup</div></div>
     </div>
   );
 }

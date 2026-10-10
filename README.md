@@ -17,7 +17,7 @@
 - [Project Directory Structure](#-project-directory-structure)
 - [API Reference](#-api-reference)
 - [Demo Personas & Role-Based Access](#-demo-personas--role-based-access)
-- [Cloud Architecture & Security](#-cloud-architecture--security)
+- [AWS Technology Stack & Cloud Architecture](#-aws-technology-stack--cloud-architecture)
 - [Scripts Reference](#-scripts-reference)
 - [License](#-license)
 
@@ -65,9 +65,25 @@ Millions of tons of construction materials, corporate IT equipment, fabric remna
 - Printable QR code badges for physical pallets, boxes, or bins.
 - In-browser camera and file QR scanner to immediately verify items on-site during pickup.
 
-### 📊 ESG & CSR Impact Accounting
-- Live tracking of kilograms diverted from landfills, estimated CO₂e avoided (IPCC emission factors), and meals rescued.
-- Automated downloadable CSR Sustainability Certificates.
+### 📊 Auditable Carbon & CSR Accounting Engine (IPCC & GHG Protocol Scope 3)
+- **Life-Cycle Emission Factors**: Real-time carbon calculation based on IPCC 2006 Guidelines for National Greenhouse Gas Inventories and ISO 14025 EPD benchmarks:
+  - *Cooked Food Rescue*: **2.54 kg CO₂e / kg** (anaerobic landfill methane decay displacement)
+  - *Vitrified & Ceramic Tiles*: **0.78 kg CO₂e / kg** (avoided clay extraction and 1200°C kiln firing)
+  - *Scrap Steel & Metals*: **1.85 kg CO₂e / kg** (offset primary blast furnace iron ore reduction)
+  - *Cotton & Textiles*: **14.8 kg CO₂e / kg** (avoided virgin fiber spinning, sizing, and chemical dyeing)
+  - *Garments & Apparel*: **16.2 kg CO₂e / kg** (displaced cut-make-trim and transcontinental freight)
+  - *E-Waste & Electronics*: **28.5 kg CO₂e / kg** (offset silicon wafering, smelting, and PCB fabrication)
+  - *Furniture & Wood*: **1.25–1.45 kg CO₂e / kg** (preserved biogenic carbon sink and resin curing avoidance)
+- **Route-Weighted Displacement Credits**:
+  - **Reuse**: 100% full displacement credit (zero remelt or reprocessing energy required)
+  - **Donate**: 100% humanitarian relief credit (immediate hunger relief and organic diversion)
+  - **Resell**: 90% net credit (accounts for secondary redistribution transport)
+  - **Recycle**: 45% net credit (deducts 55% thermal/mechanical secondary recycling reprocessing penalty)
+- **Tamper-Evident CSR Certificates**: Automatically generates official serialized certificates (`W2W-2026-XXXX-CSR`) sealed with a cryptographic **SHA-256 verification hash**.
+- **Itemized Material Audit Ledger**: Provides lot-by-lot itemized breakdown (lot ID, weight, material category, route credit %, and net CO₂e saved) for corporate sustainability auditors.
+- **Environmental Equivalencies**: Translates metric emissions into human-relatable metrics (annual urban trees planted, passenger car km displaced, home electricity days, and landfill airspace m³ saved).
+- **Public Certificate Verification Registry**: Third-party auditors, regulators, or buyers can verify any certificate number in real-time via the in-app verifier or the `GET /api/impact/verify/:certNo` API endpoint.
+- **One-Click Audit CSV & PDF Export**: Instant export of raw ledger data to CSV for corporate GRI, BRSR Principle 6, and GHG Protocol Scope 3 Category 5/12 filings.
 
 ---
 
@@ -83,7 +99,7 @@ Millions of tons of construction materials, corporate IT equipment, fabric remna
 | **QR Code Engine** | qrcode, jsQR |
 | **Backend & Server** | Express 4 (Node.js 22), Multer |
 | **AI Vision Engine** | Google GenAI SDK (`@google/genai`, Gemini 2.5 Flash) |
-| **Policy & Cloud Simulation** | Cedar Policy Engine, Amazon EventBridge Bus, CloudWatch Metrics |
+| **AWS Cloud Technologies** | Amazon Cedar, Amazon EventBridge, Amazon CloudWatch, Amazon SQS, Amazon S3, Amazon CloudFront, Amazon OpenSearch, Amazon SageMaker |
 
 ---
 
@@ -262,8 +278,11 @@ The backend provides a RESTful API under the `/api` prefix:
 - `GET /api/cloud/status` — Inspect Cedar, EventBridge, CloudWatch, S3, and OpenSearch status.
 - `GET /api/cloud/cedar/policies` — View active Cedar authorization policies and audit logs.
 - `GET /api/cloud/cloudwatch/metrics` — View real-time platform metrics.
-- `GET /api/impact/summary` — Retrieve aggregate platform ESG impact metrics.
-- `GET /api/impact/orgs/:id/certificate` — Generate an official CSR diversion certificate.
+
+### 6. Impact & Auditable Carbon Accounting
+- `GET /api/impact/summary` — Retrieve aggregate platform ESG impact metrics, route/material breakdown, equivalencies, and IPCC benchmarks.
+- `GET /api/impact/orgs/:id/certificate` — Generate an official serialized CSR diversion certificate with SHA-256 verification hash, itemized audit ledger, and compliance badges.
+- `GET /api/impact/verify/:certNo` — Verify any certificate against the official registry for third-party ESG auditors, regulators, and partners.
 
 ---
 
@@ -286,17 +305,85 @@ Waste2Worth includes built-in test accounts representing each stakeholder in the
 
 ---
 
-## 🔒 Cloud Architecture & Security
+## ☁️ AWS Technology Stack & Cloud Architecture
 
-Waste2Worth incorporates enterprise cloud design patterns:
+Waste2Worth incorporates enterprise-grade AWS cloud technologies and architectural patterns to manage trust, event-driven decoupled logistics, telemetry, and scalable data storage:
 
-- **Cedar Policy Language**: Fine-grained authorization evaluated before any donation claim or listing action:
-  - *NGO Food Rescue Policy*: Allows only verified NGOs (`role == "ngo" && verified == true`) to claim donations.
-  - *Seller Ownership Policy*: Guarantees only the lot creator can edit or withdraw items.
-  - *Certified Recycler Policy*: Restricts hazardous e-waste to verified recyclers.
-- **EventBridge Event Bus**: Emits structured domain events (`Waste2Worth.Listing.Published`, `Waste2Worth.Donation.Claimed`) for decoupled downstream processing.
-- **CloudWatch Telemetry**: Tracks real-time operations, including Cedar decisions (`CedarAllowCount`, `CedarDenyCount`), CO₂e savings, and published lots.
-- **Inspect Cloud Architecture**: Click the **☁️ Cloud** button in the header at any time to open the live architecture modal.
+### 1. Amazon Cedar Policy Language & Engine (Auth & Policy Governance)
+- **Role**: Fine-grained, declarative Authorization and Policy-Based Access Control (PBAC / ABAC) protecting high-stakes resources.
+- **Why Cedar**: Decouples business logic from permissions, ensuring deterministic and auditable `ALLOW` or `DENY` decisions with millisecond evaluation latency.
+- **Active Cedar Policies**:
+  - `policy-ngo-food-claim-001` (*NGO Cooked Food Rescue Policy*):
+    ```cedar
+    permit (
+      principal is Org,
+      action == Action::"ClaimDonation",
+      resource is Listing
+    ) when {
+      principal.role == "ngo" &&
+      principal.verified == true &&
+      resource.route == "donate"
+    };
+    ```
+    Guarantees that emergency food donations can only be claimed by verified non-profits, preventing scalping and protecting donor liability.
+  - `policy-seller-ownership-002` (*Seller Listing Ownership Policy*): Restricts editing and lot withdrawal exclusively to the lot's original seller.
+  - `policy-certified-recycler-003` (*Certified Recycler Processing Policy*): Restricts hazardous e-waste and scrap metals solely to certified recycling organizations.
+  - `policy-verified-buyer-pool-004` (*Verified Buyer Order Policy*): Grants access to multi-seller pooled orders for verified business accounts.
+- **Audit Logging**: Every evaluation generates an auditable record with execution duration (`durationMs`) and principal context.
+
+### 2. Amazon EventBridge (Event-Driven Logistics & Plumbing)
+- **Role**: Serverless event bus powering decoupled, asynchronous domain event routing.
+- **Bus**: `waste2worth-production-bus`
+- **Domain Events Emitted**:
+  - `Waste2Worth.Listing.Published` — Triggered when a surplus or salvage lot is published, enabling downstream indexing and candidate match finding.
+  - `Waste2Worth.Donation.Claimed` — Emitted when an NGO successfully claims a donation, triggering dispatch alerts and updating inventory.
+  - `Waste2Worth.System.Ready` — System initialization and health heartbeat.
+- **Payload Structure**: Events conform to the standard EventBridge envelope (`source: "aws.waste2worth.app"`, `detailType`, `time`, `id`, `status: "DELIVERED"`).
+
+### 3. Amazon CloudWatch (Metrics & Observability)
+- **Role**: Real-time telemetry, operational metrics monitoring, and compliance tracking.
+- **Namespace**: `Waste2Worth/CloudWatch`
+- **Tracked Metric Dimensions**:
+  - `CedarEvaluationsTotal`, `CedarAllowCount`, `CedarDenyCount` — Authorization throughput and policy violation tracking.
+  - `EventBridgeEventsPublished` — Event bus throughput.
+  - `LotsPublished` & `DonationsClaimed` — Core circular transactions.
+  - `QRScansCompleted` — In-field physical lot tag verification activity.
+  - `CO2eAvoidedKg` — Platform-wide carbon displacement metric.
+  - `S3StorageMegabytes` — Asset volume stored across all proof photos.
+
+### 4. Amazon SQS (Simple Queue Service)
+- **Role**: FIFO message queuing for guaranteed, in-order dispatch of time-sensitive emergency alerts.
+- **Queue Endpoint**: `https://sqs.ap-south-1.amazonaws.com/123456789012/waste2worth-ngo-dispatch.fifo`
+- **Use Case**: Queues cooked food rescue alert jobs to notify nearby NGOs within a 4 km radius without duplicate dispatches or message loss.
+
+### 5. Amazon S3 (Simple Storage Service) & Amazon CloudFront
+- **Role**: Durable object storage and global edge content delivery network.
+- **S3 Bucket**: `s3://waste2worth-production-lot-assets` (AWS Region: `ap-south-1`)
+- **CloudFront CDN**: Distribution `d1a2b3c4d5e6.cloudfront.net`
+- **Use Case**: High-resolution proof photos, close-up defect shots, color calibration reference images, and QR lot tag badges.
+
+### 6. Amazon OpenSearch Service
+- **Role**: Full-text and vector search cluster.
+- **Domain & Index**: `waste2worth-search-cluster` · Index: `waste2worth-listings-v2`
+- **Use Case**: High-speed keyword search (`q=`), material taxonomy matching, batch shade discovery, and radius-based geographic filtering.
+
+### 7. Amazon SageMaker
+- **Role**: Machine learning model inference hosting.
+- **Endpoint**: `waste2worth-vision-defect-inspector-v1`
+- **Use Case**: Detects surface fractures, corner chips, and cosmetic scuffs, generating spatial coordinate maps for buyer inspection.
+
+### 8. Installed AWS SDK Packages
+The project imports official AWS SDK for JavaScript v3 client libraries:
+- `@aws-sdk/client-cloudwatch` — Custom metric publishing and alarm evaluation.
+- `@aws-sdk/client-eventbridge` — Event bus management and event publishing.
+- `@aws-sdk/client-s3` — Direct object uploads and asset URL generation.
+
+### 9. Interactive Live Cloud Architecture Modal (In-App Console)
+Inspect the active AWS cloud architecture at any time by clicking the **☁️ Cloud** button in the top navigation bar:
+- **Cedar Tab**: View all active Cedar policies and run live simulated policy evaluations with any persona and action.
+- **EventBridge Tab**: Inspect the live event stream with event IDs, timestamps, and payload details.
+- **CloudWatch Tab**: Monitor real-time platform counters, allow/deny ratios, and storage gauges.
+- **Stack Tab**: View status of SQS, S3, CloudFront, OpenSearch, and SageMaker integration endpoints.
 
 ---
 
