@@ -1,0 +1,187 @@
+import { useEffect, useState } from "react";
+import { BrowserRouter, Link, NavLink, Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { PersonaProvider, ROLE_LABEL, ToastProvider, usePersona } from "./app-state";
+import Home from "./pages/Home";
+import Explore from "./pages/Explore";
+import ListingDetail from "./pages/ListingDetail";
+import Sell from "./pages/Sell";
+import Pool from "./pages/Pool";
+import Food from "./pages/Food";
+import Impact from "./pages/Impact";
+import Join from "./pages/Join";
+import Dashboard from "./pages/Dashboard";
+import Track from "./pages/Track";
+import GlobalSearchBar from "./components/GlobalSearchBar";
+import CloudServicesModal from "./components/CloudServicesModal";
+
+function PersonaPicker() {
+  const { orgs = [], persona, choose, status } = (usePersona() || {}) as any;
+  const nav = useNavigate();
+
+  if (status === "loading" && !orgs.length) {
+    return <span className="chip chip-neutral">Connecting…</span>;
+  }
+  if (status === "error" && !orgs.length) {
+    return (
+      <span className="chip chip-bad" title="Retrying automatically">
+        Server unreachable · retrying
+      </span>
+    );
+  }
+  if (!orgs.length) return null;
+
+  const groups = Object.keys(ROLE_LABEL)
+    .map((role) => [role, orgs.filter((o: any) => o.role === role)] as const)
+    .filter(([, xs]) => xs.length);
+
+  return (
+    <label
+      className="persona"
+      title="Demo accounts: switch to see the platform as a seller, buyer, NGO or recycler"
+    >
+      <span>Acting as</span>
+      <select
+        className="select"
+        style={{ padding: "7px 10px", fontSize: 14 }}
+        value={persona?.id || ""}
+        onChange={(e) =>
+          e.target.value === "new" ? nav("/join") : choose(Number(e.target.value))
+        }
+      >
+        {groups.map(([role, xs]) => (
+          <optgroup key={role} label={(ROLE_LABEL as any)[role] || role}>
+            {xs.map((o: any) => (
+              <option key={o.id} value={o.id}>
+                {o.name}
+              </option>
+            ))}
+          </optgroup>
+        ))}
+        <option value="new">+ Create a new account…</option>
+      </select>
+    </label>
+  );
+}
+
+function Nav() {
+  const [showCloudModal, setShowCloudModal] = useState(false);
+
+  return (
+    <header className="nav">
+      <div className="container nav-inner">
+        <Link to="/" className="logo" aria-label="Waste2Worth home">
+          <span className="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 120 120" width="24" height="24">
+              <path
+                d="M34 48 C34 27 62 20 77 34 C89 46 78 60 64 70 L44 84 H78"
+                fill="none"
+                stroke="#17171C"
+                strokeWidth="13"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M74 68 L96 84 L74 100 Z"
+                fill="#FFFFFF"
+                stroke="#17171C"
+                strokeWidth="9"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+          waste<span style={{ color: "#5F7F14" }}>2</span>worth
+        </Link>
+        <GlobalSearchBar />
+        <nav className="nav-links" aria-label="Main">
+          <NavLink to="/explore">Explore</NavLink>
+          <NavLink to="/sell">List waste</NavLink>
+          <NavLink to="/pool">Pooled lots</NavLink>
+          <NavLink to="/food">Food rescue</NavLink>
+          <NavLink to="/impact">Impact</NavLink>
+          <NavLink to="/dashboard">My dashboard</NavLink>
+        </nav>
+        <div className="nav-right">
+          <button
+            type="button"
+            className="chip chip-neutral"
+            onClick={() => setShowCloudModal(true)}
+            style={{
+              padding: "5px 10px",
+              cursor: "pointer",
+              border: "1.5px solid var(--line-strong)",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 5,
+              fontSize: 12.5,
+              fontWeight: 700,
+            }}
+            title="Inspect Cloud Architecture (Cedar, EventBridge, CloudWatch, S3, OpenSearch)"
+          >
+            ☁️ Cloud
+          </button>
+          <PersonaPicker />
+          <Link to="/join" className="btn btn-sm">
+            Join
+          </Link>
+        </div>
+      </div>
+      <CloudServicesModal isOpen={showCloudModal} onClose={() => setShowCloudModal(false)} />
+    </header>
+  );
+}
+
+function ScrollTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
+function NotFound() {
+  return (
+    <div className="container section" style={{ textAlign: "center", padding: "60px 20px" }}>
+      <h1 style={{ fontSize: 56 }}>Lost in the landfill.</h1>
+      <p className="muted" style={{ marginTop: 12 }}>
+        That page doesn't exist.
+      </p>
+      <Link to="/" className="btn btn-primary" style={{ marginTop: 24 }}>
+        Back home
+      </Link>
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ToastProvider>
+      <PersonaProvider>
+        <BrowserRouter>
+          <ScrollTop />
+          <Nav />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/explore" element={<Explore />} />
+              <Route path="/listing/:id" element={<ListingDetail />} />
+              <Route path="/sell" element={<Sell />} />
+              <Route path="/sell/:id" element={<Sell />} />
+              <Route path="/pool" element={<Pool />} />
+              <Route path="/food" element={<Food />} />
+              <Route path="/impact" element={<Impact />} />
+              <Route path="/join" element={<Join />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/track/:id" element={<Track />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <footer className="footer">
+            <div className="container">
+              <span>waste2worth · reuse, recycle, resell, donate</span>
+            </div>
+          </footer>
+        </BrowserRouter>
+      </PersonaProvider>
+    </ToastProvider>
+  );
+}

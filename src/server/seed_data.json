@@ -1,0 +1,492 @@
+{
+  "orgs": [
+    {
+      "name": "BuildRight Contractors (Whitefield site)",
+      "role": "business",
+      "lat": 12.9698,
+      "lng": 77.75,
+      "verified": true
+    },
+    {
+      "name": "Sharma Interiors",
+      "role": "business",
+      "lat": 12.9784,
+      "lng": 77.6408,
+      "verified": true
+    },
+    {
+      "name": "Kavya Tiles & Sanitary",
+      "role": "business",
+      "lat": 12.9116,
+      "lng": 77.6474,
+      "verified": true
+    },
+    {
+      "name": "Nimbus Tech Park Facilities",
+      "role": "business",
+      "lat": 12.9352,
+      "lng": 77.6245,
+      "verified": true
+    },
+    {
+      "name": "Spice Route Kitchen",
+      "role": "business",
+      "lat": 12.934,
+      "lng": 77.626,
+      "verified": true
+    },
+    {
+      "name": "UrbanThread Apparel",
+      "role": "brand",
+      "lat": 13.028,
+      "lng": 77.519,
+      "verified": true,
+      "badges": [
+        "Brand verified"
+      ]
+    },
+    {
+      "name": "Ravi Renovations",
+      "role": "buyer",
+      "lat": 12.9569,
+      "lng": 77.7011,
+      "verified": true
+    },
+    {
+      "name": "Anita K.",
+      "role": "buyer",
+      "lat": 12.925,
+      "lng": 77.67
+    },
+    {
+      "name": "Meera S.",
+      "role": "individual",
+      "lat": 12.9279,
+      "lng": 77.6271
+    },
+    {
+      "name": "CircuitCycle E-Waste Recyclers",
+      "role": "recycler",
+      "lat": 12.99,
+      "lng": 77.66,
+      "verified": true,
+      "certified_recycler": true,
+      "accepts_categories": [
+        "electronics"
+      ],
+      "badges": [
+        "Certified e-waste recycler"
+      ]
+    },
+    {
+      "name": "MetalMart Scrap Traders",
+      "role": "recycler",
+      "lat": 12.96,
+      "lng": 77.64,
+      "verified": true,
+      "accepts_categories": [
+        "metal",
+        "packaging",
+        "wood"
+      ]
+    },
+    {
+      "name": "Full Plate Foundation",
+      "role": "ngo",
+      "lat": 12.938,
+      "lng": 77.62,
+      "verified": true,
+      "accepts_categories": [
+        "food_cooked",
+        "clothing"
+      ],
+      "badges": [
+        "Verified NGO"
+      ]
+    },
+    {
+      "name": "Second Serving Trust",
+      "role": "ngo",
+      "lat": 12.945,
+      "lng": 77.635,
+      "verified": true,
+      "accepts_categories": [
+        "food_cooked"
+      ],
+      "badges": [
+        "Verified NGO"
+      ]
+    },
+    {
+      "name": "Hope Kitchen Collective",
+      "role": "ngo",
+      "lat": 12.93,
+      "lng": 77.61,
+      "verified": false,
+      "accepts_categories": [
+        "food_cooked"
+      ]
+    },
+    {
+      "name": "ThreadShare",
+      "role": "ngo",
+      "lat": 12.97,
+      "lng": 77.6,
+      "verified": true,
+      "accepts_categories": [
+        "clothing",
+        "fabric",
+        "furniture"
+      ],
+      "badges": [
+        "Verified NGO"
+      ]
+    }
+  ],
+  "listings": [
+    {
+      "seller": "BuildRight Contractors (Whitefield site)",
+      "category": "tiles",
+      "unit": "pieces",
+      "condition": "good",
+      "brand": "Terrano Tiles",
+      "product_name": "Terrano Nordic",
+      "model_sku": "TR-6060-MW",
+      "manufacturer_color": "Arctic Matte White",
+      "purchased_from": "Kavya Tiles & Sanitary, HSR",
+      "purchase_year": 2025,
+      "has_invoice": true,
+      "attributes": {
+        "material": "vitrified",
+        "size_mm": "600x600",
+        "thickness_mm": 9,
+        "finish": "matte",
+        "usage": "floor",
+        "boxed": true
+      },
+      "title": "Terrano 600x600 matte white floor tiles",
+      "quantity": 40,
+      "asking_price_per_unit": 95,
+      "reason_code": "project_surplus",
+      "reason_detail": "Villa project finished; these 40 tiles were left over in sealed boxes.",
+      "color_rgb": [
+        232,
+        228,
+        220
+      ]
+    },
+    {
+      "seller": "Sharma Interiors",
+      "category": "tiles",
+      "unit": "pieces",
+      "condition": "good",
+      "brand": "Terrano Tiles",
+      "product_name": "Terrano Nordic",
+      "model_sku": "TR-6060-MW",
+      "manufacturer_color": "Arctic Matte White",
+      "purchased_from": "Kavya Tiles & Sanitary, HSR",
+      "purchase_year": 2025,
+      "has_invoice": true,
+      "attributes": {
+        "material": "vitrified",
+        "size_mm": "600x600",
+        "thickness_mm": 9,
+        "finish": "matte",
+        "usage": "floor",
+        "boxed": true,
+        "batch_shade_code": "B24-117"
+      },
+      "title": "Matte white vitrified tiles, 600x600",
+      "quantity": 70,
+      "asking_price_per_unit": 90,
+      "reason_code": "design_change",
+      "reason_detail": "Client switched to wooden flooring after we had bought the tiles.",
+      "color_rgb": [
+        230,
+        227,
+        219
+      ]
+    },
+    {
+      "seller": "Kavya Tiles & Sanitary",
+      "category": "tiles",
+      "unit": "pieces",
+      "condition": "like_new",
+      "brand": "Terrano Tiles",
+      "product_name": "Terrano Nordic",
+      "model_sku": "TR-6060-MW",
+      "manufacturer_color": "Arctic Matte White",
+      "purchased_from": "Kavya Tiles & Sanitary, HSR",
+      "purchase_year": 2025,
+      "has_invoice": true,
+      "attributes": {
+        "material": "vitrified",
+        "size_mm": "600x600",
+        "thickness_mm": 9,
+        "finish": "matte",
+        "usage": "floor",
+        "boxed": true
+      },
+      "title": "Terrano Arctic Matte White, dealer stock",
+      "quantity": 90,
+      "asking_price_per_unit": 100,
+      "reason_code": "discontinued_stock",
+      "reason_detail": "The design has been discontinued by the brand; clearing old showroom stock.",
+      "color_rgb": [
+        233,
+        229,
+        222
+      ]
+    },
+    {
+      "seller": "Nimbus Tech Park Facilities",
+      "category": "tiles",
+      "unit": "pieces",
+      "condition": "good",
+      "brand": "Terrano Tiles",
+      "product_name": "Terrano Nordic",
+      "model_sku": "TR-6060-MW",
+      "manufacturer_color": "Arctic Matte White",
+      "purchased_from": "Kavya Tiles & Sanitary, HSR",
+      "purchase_year": 2025,
+      "has_invoice": true,
+      "attributes": {
+        "material": "vitrified",
+        "size_mm": "600x600",
+        "thickness_mm": 9,
+        "finish": "matte",
+        "usage": "floor",
+        "boxed": true
+      },
+      "title": "White 600x600 tiles (older batch)",
+      "quantity": 60,
+      "asking_price_per_unit": 85,
+      "reason_code": "renovation_removal",
+      "reason_detail": "Spare tiles from the 2025 lobby job; the box says a different batch.",
+      "color_rgb": [
+        214,
+        204,
+        186
+      ]
+    },
+    {
+      "seller": "Nimbus Tech Park Facilities",
+      "category": "electronics",
+      "unit": "pieces",
+      "condition": "fair",
+      "quantity": 12,
+      "title": "Office laptops, i5 8th gen, 8 GB RAM",
+      "brand": "Lenara",
+      "model_sku": "ThinkLite T480",
+      "purchase_year": 2019,
+      "asking_price_per_unit": 9000,
+      "reason_code": "office_refresh",
+      "reason_detail": "IT refresh: replaced with new laptops. All drives wiped and tested.",
+      "attributes": {
+        "device_type": "laptop",
+        "model_year": 2018,
+        "working_status": "fully_working",
+        "specs": "i5-8350U, 8 GB, 256 GB SSD",
+        "data_wiped": true,
+        "accessories": "chargers"
+      },
+      "color_rgb": [
+        40,
+        42,
+        48
+      ]
+    },
+    {
+      "seller": "Nimbus Tech Park Facilities",
+      "category": "electronics",
+      "unit": "pieces",
+      "condition": "poor",
+      "quantity": 8,
+      "title": "Dead 22-inch monitors",
+      "brand": "Viewtek",
+      "model_sku": "VT-22H",
+      "route": "recycle",
+      "reason_code": "broken",
+      "reason_detail": "No display on power-up; repair quote was more than a new one.",
+      "attributes": {
+        "device_type": "monitor",
+        "working_status": "not_working"
+      },
+      "color_rgb": [
+        30,
+        30,
+        32
+      ]
+    },
+    {
+      "seller": "UrbanThread Apparel",
+      "category": "clothing",
+      "source_type": "brand_second",
+      "unit": "pieces",
+      "condition": "new",
+      "quantity": 60,
+      "title": "Oversized cotton hoodie, misprinted logo",
+      "brand": "UrbanThread",
+      "product_name": "Oversized Logo Hoodie",
+      "model_sku": "UT-HD-221",
+      "manufacturer_color": "Lilac Haze",
+      "new_price_per_unit": 1299,
+      "asking_price_per_unit": 349,
+      "reason_code": "manufacturing_defect",
+      "reason_detail": "Chest logo was printed 4 mm off-centre on this batch, so it failed QC.",
+      "attributes": {
+        "garment_type": "hoodie",
+        "sizes": "S x10, M x20, L x20, XL x10",
+        "gender": "unisex",
+        "fabric": "100% cotton fleece",
+        "washed_clean": true,
+        "defect_type": "print_misalignment",
+        "defect_description": "Logo shifted 4 mm to the left on the chest",
+        "cosmetic_only": true
+      },
+      "color_rgb": [
+        165,
+        140,
+        230
+      ]
+    },
+    {
+      "seller": "UrbanThread Apparel",
+      "category": "fabric",
+      "unit": "kg",
+      "condition": "new",
+      "quantity": 90,
+      "title": "Cotton fleece off-cuts, mixed pastels",
+      "asking_price_per_unit": 60,
+      "reason_code": "offcuts",
+      "reason_detail": "Cutting-room waste from the hoodie line. Clean and sorted by colour.",
+      "attributes": {
+        "fabric_type": "cotton",
+        "piece_size": "20-60 cm",
+        "colours": "lilac, mint, cream",
+        "printed": false
+      },
+      "color_rgb": [
+        190,
+        225,
+        205
+      ]
+    },
+    {
+      "seller": "BuildRight Contractors (Whitefield site)",
+      "category": "metal",
+      "unit": "kg",
+      "condition": "fair",
+      "quantity": 350,
+      "title": "TMT rebar off-cuts",
+      "route": "recycle",
+      "asking_price_per_unit": 32,
+      "reason_code": "project_surplus",
+      "reason_detail": "Off-cuts from column work, 0.5-2 m lengths, stacked at the site gate.",
+      "attributes": {
+        "metal": "steel",
+        "form": "rebar",
+        "rust_level": "light"
+      },
+      "color_rgb": [
+        110,
+        90,
+        80
+      ]
+    },
+    {
+      "seller": "Nimbus Tech Park Facilities",
+      "category": "furniture",
+      "unit": "pieces",
+      "condition": "good",
+      "quantity": 25,
+      "title": "Mesh-back office chairs",
+      "brand": "Seatwell",
+      "asking_price_per_unit": 900,
+      "reason_code": "office_refresh",
+      "reason_detail": "Floor 3 moved to hot-desking, so these chairs are surplus. All wheels work.",
+      "attributes": {
+        "item_type": "chair",
+        "material": "mixed",
+        "needs_repair": false
+      },
+      "color_rgb": [
+        50,
+        55,
+        65
+      ]
+    },
+    {
+      "seller": "Meera S.",
+      "category": "clothing",
+      "unit": "pieces",
+      "condition": "good",
+      "quantity": 15,
+      "route": "donate",
+      "title": "Kids' clothes, ages 4-7",
+      "brand": "Assorted",
+      "reason_code": "outgrown",
+      "reason_detail": "My twins outgrew these. Everything is washed and folded.",
+      "attributes": {
+        "garment_type": "kidswear",
+        "sizes": "4-7 years",
+        "gender": "kids",
+        "washed_clean": true
+      },
+      "color_rgb": [
+        250,
+        180,
+        90
+      ]
+    },
+    {
+      "seller": "Spice Route Kitchen",
+      "category": "food_cooked",
+      "unit": "plates",
+      "condition": "new",
+      "quantity": 40,
+      "route": "donate",
+      "title": "40 plates veg biryani",
+      "reason_code": "cancelled_order",
+      "reason_detail": "A corporate lunch order for 40 was cancelled at the last minute.",
+      "attributes": {
+        "dish_name": "Veg biryani",
+        "diet": "veg",
+        "cooked_at": "2026-10-10T08:46:59.261716+00:00",
+        "storage": "hot_holding",
+        "packaging": "sealed_containers",
+        "allergens": "contains dairy, cashew"
+      },
+      "_dispatch": true,
+      "color_rgb": [
+        230,
+        160,
+        60
+      ]
+    },
+    {
+      "seller": "Spice Route Kitchen",
+      "category": "food_cooked",
+      "unit": "plates",
+      "condition": "new",
+      "quantity": 25,
+      "route": "donate",
+      "title": "25 plates dal rice",
+      "reason_code": "end_of_day",
+      "reason_detail": "End-of-day surplus from the lunch buffet, kept in a hot case.",
+      "attributes": {
+        "dish_name": "Dal rice",
+        "diet": "veg",
+        "cooked_at": "2026-10-10T08:01:59.261716+00:00",
+        "storage": "hot_holding",
+        "packaging": "covered_trays"
+      },
+      "_claim_by": "Full Plate Foundation",
+      "color_rgb": [
+        220,
+        190,
+        90
+      ]
+    }
+  ]
+}

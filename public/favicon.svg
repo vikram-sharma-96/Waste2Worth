@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Waste2Worth">
+  <title>Waste2Worth badge</title>
+  <rect x="4" y="4" width="112" height="112" rx="30" fill="#C6E77A" stroke="#17171C" stroke-width="7"/>
+  <path d="M34 48 C34 27 62 20 77 34 C89 46 78 60 64 70 L44 84 H78"
+        fill="none" stroke="#17171C" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M74 68 L96 84 L74 100 Z" fill="#FFFFFF" stroke="#17171C" stroke-width="9" stroke-linejoin="round"/>
+</svg>

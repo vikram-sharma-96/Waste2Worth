@@ -1,0 +1,1564 @@
+[
+  {
+    "key": "tiles",
+    "label": "Tiles",
+    "group": "Construction & demolition",
+    "routes": [
+      "reuse",
+      "resell",
+      "recycle"
+    ],
+    "units": [
+      "pieces",
+      "sqft",
+      "boxes",
+      "kg"
+    ],
+    "attributes": [
+      {
+        "key": "material",
+        "label": "Tile material",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "ceramic",
+          "vitrified",
+          "porcelain",
+          "natural_stone",
+          "mosaic"
+        ],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "size_mm",
+        "label": "Tile size (mm)",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "unit": null,
+        "help": "e.g. 600x600"
+      },
+      {
+        "key": "thickness_mm",
+        "label": "Thickness",
+        "type": "number",
+        "required": false,
+        "options": [],
+        "unit": "mm",
+        "help": null
+      },
+      {
+        "key": "finish",
+        "label": "Surface finish",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "matte",
+          "glossy",
+          "satin",
+          "textured",
+          "rustic"
+        ],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "usage",
+        "label": "Made for",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "floor",
+          "wall",
+          "both"
+        ],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "batch_shade_code",
+        "label": "Batch / shade code printed on the box",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "unit": null,
+        "help": "Tiles from different batches can differ in shade. The code is usually on the box."
+      },
+      {
+        "key": "boxed",
+        "label": "Still in original boxes",
+        "type": "bool",
+        "required": true,
+        "options": [],
+        "unit": null,
+        "help": null
+      }
+    ],
+    "shots": [
+      {
+        "key": "full_lot",
+        "label": "Whole lot",
+        "help": "All the tiles stacked so the quantity is visible.",
+        "required": true
+      },
+      {
+        "key": "surface_closeup",
+        "label": "Surface close-up",
+        "help": "One tile face, filling the frame, in daylight.",
+        "required": true
+      },
+      {
+        "key": "label",
+        "label": "Box / label",
+        "help": "The label showing brand, design code and batch/shade code.",
+        "required": true
+      },
+      {
+        "key": "color_reference",
+        "label": "Colour reference photo",
+        "help": "Place one item in the middle of a plain white A4 sheet and fill the frame so paper shows all around it. Shoot in daylight with the flash off. We use the white paper to cancel out your lighting so buyers see the true colour.",
+        "required": true
+      },
+      {
+        "key": "edges",
+        "label": "Edges and corners",
+        "help": "Show any chips or cracks.",
+        "required": false
+      }
+    ],
+    "min_images": 4,
+    "reasons": [
+      {
+        "key": "project_surplus",
+        "label": "Left over after a project"
+      },
+      {
+        "key": "over_ordered",
+        "label": "Ordered too many"
+      },
+      {
+        "key": "design_change",
+        "label": "Design changed"
+      },
+      {
+        "key": "discontinued_stock",
+        "label": "Discontinued design (dealer stock)"
+      },
+      {
+        "key": "renovation_removal",
+        "label": "Removed during renovation"
+      },
+      {
+        "key": "damaged_in_transit",
+        "label": "Some damaged in transit"
+      },
+      {
+        "key": "other",
+        "label": "Other (explain below)"
+      }
+    ],
+    "provenance_required": [
+      {
+        "key": "brand",
+        "label": "Brand / manufacturer"
+      },
+      {
+        "key": "model_sku",
+        "label": "Model number / SKU / design code"
+      },
+      {
+        "key": "manufacturer_color",
+        "label": "Colour name exactly as the company describes it"
+      },
+      {
+        "key": "purchased_from",
+        "label": "Where it was bought (dealer, store, website)"
+      }
+    ],
+    "new_price": {
+      "pieces": 160,
+      "sqft": 55,
+      "boxes": 640,
+      "kg": 18
+    },
+    "unit_weight_kg": {
+      "pieces": 8.5,
+      "sqft": 2.2,
+      "boxes": 34,
+      "kg": 1
+    },
+    "scrap_price_per_kg": 0.5,
+    "co2_kg_per_kg": 0.7,
+    "option_attr": null,
+    "by_option": {},
+    "poolable": true,
+    "pool_keys": [
+      "brand",
+      "model_sku",
+      "manufacturer_color",
+      "size_mm",
+      "finish"
+    ],
+    "color_critical": true,
+    "perishable": false,
+    "reuse_ideas": [
+      "Mosaic garden path from broken pieces",
+      "Tiled planter boxes",
+      "Coasters and trivets",
+      "Kitchen or bathroom splash-back patch",
+      "Pet feeding mat"
+    ]
+  },
+  {
+    "key": "wood",
+    "label": "Wood & timber",
+    "group": "Construction & demolition",
+    "routes": [
+      "reuse",
+      "resell",
+      "recycle"
+    ],
+    "units": [
+      "kg",
+      "pieces",
+      "sheets"
+    ],
+    "attributes": [
+      {
+        "key": "wood_type",
+        "label": "Wood type",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "plywood",
+          "mdf",
+          "solid_hardwood",
+          "softwood",
+          "particle_board",
+          "laminate_board"
+        ],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "dimensions",
+        "label": "Typical piece size (L x W)",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "unit": null,
+        "help": "e.g. 8ft x 4ft, or 'mixed off-cuts'"
+      },
+      {
+        "key": "thickness_mm",
+        "label": "Thickness",
+        "type": "number",
+        "required": false,
+        "options": [],
+        "unit": "mm",
+        "help": null
+      },
+      {
+        "key": "treated_or_painted",
+        "label": "Treated, painted or laminated",
+        "type": "bool",
+        "required": true,
+        "options": [],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "has_nails",
+        "label": "Has nails or screws in it",
+        "type": "bool",
+        "required": true,
+        "options": [],
+        "unit": null,
+        "help": null
+      }
+    ],
+    "shots": [
+      {
+        "key": "full_lot",
+        "label": "Whole lot",
+        "help": "Everything in one frame.",
+        "required": true
+      },
+      {
+        "key": "closeup",
+        "label": "Close-up",
+        "help": "Grain and surface condition.",
+        "required": true
+      },
+      {
+        "key": "measure",
+        "label": "With measuring tape",
+        "help": "A tape across one piece so buyers see the size.",
+        "required": true
+      }
+    ],
+    "min_images": 3,
+    "reasons": [
+      {
+        "key": "project_surplus",
+        "label": "Left over after a project"
+      },
+      {
+        "key": "demolition",
+        "label": "From demolition"
+      },
+      {
+        "key": "offcuts",
+        "label": "Workshop off-cuts"
+      },
+      {
+        "key": "water_damage",
+        "label": "Minor water damage"
+      },
+      {
+        "key": "other",
+        "label": "Other (explain below)"
+      }
+    ],
+    "provenance_required": [],
+    "new_price": {
+      "kg": 45,
+      "pieces": 400,
+      "sheets": 1800
+    },
+    "unit_weight_kg": {
+      "kg": 1,
+      "pieces": 6,
+      "sheets": 22
+    },
+    "scrap_price_per_kg": 4,
+    "co2_kg_per_kg": 0.5,
+    "option_attr": null,
+    "by_option": {},
+    "poolable": false,
+    "pool_keys": [],
+    "color_critical": false,
+    "perishable": false,
+    "reuse_ideas": [
+      "Pallet-style shelf",
+      "Raised garden bed",
+      "Plant stand",
+      "Wall-mounted key holder"
+    ]
+  },
+  {
+    "key": "metal",
+    "label": "Metal scrap",
+    "group": "Construction & demolition",
+    "routes": [
+      "recycle",
+      "resell"
+    ],
+    "units": [
+      "kg"
+    ],
+    "attributes": [
+      {
+        "key": "metal",
+        "label": "Metal",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "steel",
+          "iron",
+          "stainless_steel",
+          "aluminium",
+          "copper",
+          "brass",
+          "mixed"
+        ],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "form",
+        "label": "Form",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "rebar",
+          "sheet",
+          "pipe",
+          "wire",
+          "profile",
+          "mixed"
+        ],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "rust_level",
+        "label": "Rust",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "none",
+          "light",
+          "heavy"
+        ],
+        "unit": null,
+        "help": null
+      }
+    ],
+    "shots": [
+      {
+        "key": "full_lot",
+        "label": "Whole lot",
+        "help": "Everything in one frame.",
+        "required": true
+      },
+      {
+        "key": "closeup",
+        "label": "Close-up",
+        "help": "Surface and rust.",
+        "required": true
+      }
+    ],
+    "min_images": 2,
+    "reasons": [
+      {
+        "key": "project_surplus",
+        "label": "Left over after a project"
+      },
+      {
+        "key": "demolition",
+        "label": "From demolition"
+      },
+      {
+        "key": "machine_scrap",
+        "label": "Old machinery parts"
+      },
+      {
+        "key": "other",
+        "label": "Other (explain below)"
+      }
+    ],
+    "provenance_required": [],
+    "new_price": {
+      "kg": 70
+    },
+    "unit_weight_kg": {
+      "kg": 1
+    },
+    "scrap_price_per_kg": 30,
+    "co2_kg_per_kg": 1.8,
+    "option_attr": "metal",
+    "by_option": {
+      "aluminium": {
+        "scrap_price_per_kg": 130,
+        "co2_kg_per_kg": 9.0,
+        "new_price": 250
+      },
+      "copper": {
+        "scrap_price_per_kg": 650,
+        "co2_kg_per_kg": 3.5,
+        "new_price": 850
+      },
+      "brass": {
+        "scrap_price_per_kg": 420,
+        "co2_kg_per_kg": 3.0,
+        "new_price": 600
+      },
+      "stainless_steel": {
+        "scrap_price_per_kg": 55,
+        "co2_kg_per_kg": 3.0,
+        "new_price": 180
+      }
+    },
+    "poolable": false,
+    "pool_keys": [],
+    "color_critical": false,
+    "perishable": false,
+    "reuse_ideas": [
+      "Garden trellis from rebar",
+      "Industrial-style shelf brackets",
+      "Sculpture / art pieces"
+    ]
+  },
+  {
+    "key": "fabric",
+    "label": "Fabric off-cuts",
+    "group": "Textiles",
+    "routes": [
+      "reuse",
+      "resell",
+      "recycle",
+      "donate"
+    ],
+    "units": [
+      "kg",
+      "meters"
+    ],
+    "attributes": [
+      {
+        "key": "fabric_type",
+        "label": "Fabric",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "cotton",
+          "polyester",
+          "denim",
+          "silk",
+          "wool",
+          "linen",
+          "blend"
+        ],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "piece_size",
+        "label": "Typical piece size",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "unit": null,
+        "help": "e.g. 30-60 cm strips"
+      },
+      {
+        "key": "colours",
+        "label": "Main colours",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "printed",
+        "label": "Printed / patterned",
+        "type": "bool",
+        "required": true,
+        "options": [],
+        "unit": null,
+        "help": null
+      }
+    ],
+    "shots": [
+      {
+        "key": "full_lot",
+        "label": "Whole lot",
+        "help": "The whole bundle.",
+        "required": true
+      },
+      {
+        "key": "texture_closeup",
+        "label": "Texture close-up",
+        "help": "Weave and print.",
+        "required": true
+      },
+      {
+        "key": "color_reference",
+        "label": "Colour reference photo",
+        "help": "Place one item in the middle of a plain white A4 sheet and fill the frame so paper shows all around it. Shoot in daylight with the flash off. We use the white paper to cancel out your lighting so buyers see the true colour.",
+        "required": true
+      }
+    ],
+    "min_images": 3,
+    "reasons": [
+      {
+        "key": "offcuts",
+        "label": "Cutting-room off-cuts"
+      },
+      {
+        "key": "dead_stock",
+        "label": "Unsold rolls / dead stock"
+      },
+      {
+        "key": "colour_rejected",
+        "label": "Rejected shade by buyer"
+      },
+      {
+        "key": "other",
+        "label": "Other (explain below)"
+      }
+    ],
+    "provenance_required": [],
+    "new_price": {
+      "kg": 320,
+      "meters": 120
+    },
+    "unit_weight_kg": {
+      "kg": 1,
+      "meters": 0.25
+    },
+    "scrap_price_per_kg": 12,
+    "co2_kg_per_kg": 6.0,
+    "option_attr": null,
+    "by_option": {},
+    "poolable": false,
+    "pool_keys": [],
+    "color_critical": false,
+    "perishable": false,
+    "reuse_ideas": [
+      "Tote bags",
+      "Patchwork quilt",
+      "Rag rug",
+      "Scrunchies and hair ties",
+      "Cushion covers"
+    ]
+  },
+  {
+    "key": "clothing",
+    "label": "Clothing",
+    "group": "Textiles",
+    "routes": [
+      "resell",
+      "donate",
+      "recycle",
+      "reuse"
+    ],
+    "units": [
+      "pieces",
+      "kg",
+      "sets",
+      "pairs"
+    ],
+    "attributes": [
+      {
+        "key": "garment_type",
+        "label": "Garment",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "tshirt",
+          "shirt",
+          "hoodie",
+          "jeans",
+          "dress",
+          "saree",
+          "kurta",
+          "jacket",
+          "kidswear",
+          "other"
+        ],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "sizes",
+        "label": "Sizes available",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "unit": null,
+        "help": "e.g. S x10, M x20"
+      },
+      {
+        "key": "gender",
+        "label": "For",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "men",
+          "women",
+          "unisex",
+          "kids"
+        ],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "fabric",
+        "label": "Fabric",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "washed_clean",
+        "label": "Washed and clean",
+        "type": "bool",
+        "required": true,
+        "options": [],
+        "unit": null,
+        "help": null
+      }
+    ],
+    "shots": [
+      {
+        "key": "front",
+        "label": "Front",
+        "help": "Laid flat, front side.",
+        "required": true
+      },
+      {
+        "key": "back",
+        "label": "Back",
+        "help": "Laid flat, back side.",
+        "required": true
+      },
+      {
+        "key": "label",
+        "label": "Brand / size tag",
+        "help": "Tag with brand, size and fabric.",
+        "required": true
+      },
+      {
+        "key": "color_reference",
+        "label": "Colour reference photo",
+        "help": "Place one item in the middle of a plain white A4 sheet and fill the frame so paper shows all around it. Shoot in daylight with the flash off. We use the white paper to cancel out your lighting so buyers see the true colour.",
+        "required": true
+      }
+    ],
+    "min_images": 3,
+    "reasons": [
+      {
+        "key": "outgrown",
+        "label": "Outgrown / doesn't fit"
+      },
+      {
+        "key": "unused_gift",
+        "label": "Unused gift"
+      },
+      {
+        "key": "style_change",
+        "label": "No longer my style"
+      },
+      {
+        "key": "overstock",
+        "label": "Shop overstock"
+      },
+      {
+        "key": "manufacturing_defect",
+        "label": "Factory defect"
+      },
+      {
+        "key": "customer_return",
+        "label": "Customer return"
+      },
+      {
+        "key": "other",
+        "label": "Other (explain below)"
+      }
+    ],
+    "provenance_required": [
+      {
+        "key": "brand",
+        "label": "Brand / manufacturer"
+      }
+    ],
+    "new_price": {
+      "pieces": 700,
+      "kg": 1400
+    },
+    "unit_weight_kg": {
+      "pieces": 0.4,
+      "kg": 1,
+      "sets": 0.8,
+      "pairs": 0.3
+    },
+    "scrap_price_per_kg": 8,
+    "co2_kg_per_kg": 15.0,
+    "option_attr": null,
+    "by_option": {},
+    "poolable": false,
+    "pool_keys": [],
+    "color_critical": false,
+    "perishable": false,
+    "reuse_ideas": [
+      "Cropped / upcycled fit",
+      "Cushion cover",
+      "Cleaning rags",
+      "Kids' clothes from adult sizes"
+    ]
+  },
+  {
+    "key": "electronics",
+    "label": "Electronics & IT",
+    "group": "E-waste",
+    "routes": [
+      "resell",
+      "recycle",
+      "donate"
+    ],
+    "units": [
+      "pieces"
+    ],
+    "attributes": [
+      {
+        "key": "device_type",
+        "label": "Device",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "laptop",
+          "desktop",
+          "monitor",
+          "phone",
+          "tablet",
+          "printer",
+          "networking",
+          "small_appliance",
+          "other"
+        ],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "model_year",
+        "label": "Year of manufacture",
+        "type": "int",
+        "required": false,
+        "options": [],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "working_status",
+        "label": "Working status",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "fully_working",
+          "partially_working",
+          "not_working"
+        ],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "specs",
+        "label": "Key specs",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "unit": null,
+        "help": "e.g. i5 8th gen, 8 GB RAM, 256 GB SSD"
+      },
+      {
+        "key": "data_wiped",
+        "label": "Personal / company data wiped",
+        "type": "bool",
+        "required": false,
+        "options": [],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "accessories",
+        "label": "Included accessories",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "unit": null,
+        "help": "charger, cables, box..."
+      }
+    ],
+    "shots": [
+      {
+        "key": "front",
+        "label": "Front",
+        "help": "Whole device, front.",
+        "required": true
+      },
+      {
+        "key": "back_ports",
+        "label": "Back / ports",
+        "help": "Back side and ports.",
+        "required": true
+      },
+      {
+        "key": "model_label",
+        "label": "Model label",
+        "help": "The sticker with model and serial (hide the serial if you like).",
+        "required": true
+      },
+      {
+        "key": "powered_on",
+        "label": "Powered on",
+        "help": "Screen switched on. Skip if not working.",
+        "required": false
+      }
+    ],
+    "min_images": 3,
+    "reasons": [
+      {
+        "key": "upgrade",
+        "label": "Replaced by a newer device"
+      },
+      {
+        "key": "end_of_life",
+        "label": "End of life / too slow"
+      },
+      {
+        "key": "broken",
+        "label": "Broken, repair not worth it"
+      },
+      {
+        "key": "office_refresh",
+        "label": "Office IT refresh"
+      },
+      {
+        "key": "manufacturing_defect",
+        "label": "Factory defect"
+      },
+      {
+        "key": "customer_return",
+        "label": "Customer return"
+      },
+      {
+        "key": "other",
+        "label": "Other (explain below)"
+      }
+    ],
+    "provenance_required": [
+      {
+        "key": "brand",
+        "label": "Brand / manufacturer"
+      },
+      {
+        "key": "model_sku",
+        "label": "Model number / SKU / design code"
+      }
+    ],
+    "new_price": {
+      "pieces": 15000
+    },
+    "unit_weight_kg": {
+      "pieces": 2
+    },
+    "scrap_price_per_kg": 40,
+    "co2_kg_per_kg": 60.0,
+    "option_attr": "device_type",
+    "by_option": {
+      "laptop": {
+        "new_price": 45000,
+        "unit_weight_kg": 2.0
+      },
+      "desktop": {
+        "new_price": 38000,
+        "unit_weight_kg": 8.0,
+        "co2_kg_per_kg": 40.0
+      },
+      "monitor": {
+        "new_price": 9000,
+        "unit_weight_kg": 4.0,
+        "co2_kg_per_kg": 45.0
+      },
+      "phone": {
+        "new_price": 18000,
+        "unit_weight_kg": 0.2,
+        "co2_kg_per_kg": 300.0
+      },
+      "tablet": {
+        "new_price": 20000,
+        "unit_weight_kg": 0.5,
+        "co2_kg_per_kg": 200.0
+      },
+      "printer": {
+        "new_price": 12000,
+        "unit_weight_kg": 6.0,
+        "co2_kg_per_kg": 20.0
+      },
+      "small_appliance": {
+        "new_price": 3500,
+        "unit_weight_kg": 2.0,
+        "co2_kg_per_kg": 10.0
+      }
+    },
+    "poolable": false,
+    "pool_keys": [],
+    "color_critical": false,
+    "perishable": false,
+    "reuse_ideas": [
+      "Refurbish for a school computer lab",
+      "Home media server",
+      "Harvest RAM / SSD as spares",
+      "Old phone as a CCTV or baby monitor"
+    ]
+  },
+  {
+    "key": "furniture",
+    "label": "Furniture",
+    "group": "Institutions & offices",
+    "routes": [
+      "resell",
+      "donate",
+      "reuse",
+      "recycle"
+    ],
+    "units": [
+      "pieces",
+      "sets"
+    ],
+    "attributes": [
+      {
+        "key": "item_type",
+        "label": "Item",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "chair",
+          "table",
+          "desk",
+          "cabinet",
+          "shelf",
+          "sofa",
+          "bed",
+          "bench",
+          "other"
+        ],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "material",
+        "label": "Main material",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "wood",
+          "metal",
+          "plastic",
+          "upholstered",
+          "mixed"
+        ],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "dimensions_cm",
+        "label": "Dimensions (W x D x H cm)",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "needs_repair",
+        "label": "Needs repair",
+        "type": "bool",
+        "required": true,
+        "options": [],
+        "unit": null,
+        "help": null
+      }
+    ],
+    "shots": [
+      {
+        "key": "front",
+        "label": "Front",
+        "help": "Whole item, front.",
+        "required": true
+      },
+      {
+        "key": "side",
+        "label": "Side",
+        "help": "Whole item, side.",
+        "required": true
+      },
+      {
+        "key": "wear_closeup",
+        "label": "Wear / damage close-up",
+        "help": "Scratches, stains, broken parts.",
+        "required": false
+      },
+      {
+        "key": "color_reference",
+        "label": "Colour reference photo",
+        "help": "Place one item in the middle of a plain white A4 sheet and fill the frame so paper shows all around it. Shoot in daylight with the flash off. We use the white paper to cancel out your lighting so buyers see the true colour.",
+        "required": false
+      }
+    ],
+    "min_images": 3,
+    "reasons": [
+      {
+        "key": "office_refresh",
+        "label": "Office / campus refurbishment"
+      },
+      {
+        "key": "relocation",
+        "label": "Moving out"
+      },
+      {
+        "key": "upgrade",
+        "label": "Replaced with new"
+      },
+      {
+        "key": "business_closure",
+        "label": "Business closing"
+      },
+      {
+        "key": "other",
+        "label": "Other (explain below)"
+      }
+    ],
+    "provenance_required": [],
+    "new_price": {
+      "pieces": 6000
+    },
+    "unit_weight_kg": {
+      "pieces": 15,
+      "sets": 40
+    },
+    "scrap_price_per_kg": 5,
+    "co2_kg_per_kg": 1.5,
+    "option_attr": "item_type",
+    "by_option": {
+      "chair": {
+        "new_price": 3500,
+        "unit_weight_kg": 7
+      },
+      "sofa": {
+        "new_price": 25000,
+        "unit_weight_kg": 40
+      },
+      "bed": {
+        "new_price": 18000,
+        "unit_weight_kg": 45
+      },
+      "bench": {
+        "new_price": 5000,
+        "unit_weight_kg": 20
+      }
+    },
+    "poolable": false,
+    "pool_keys": [],
+    "color_critical": false,
+    "perishable": false,
+    "reuse_ideas": [
+      "Re-upholster with fabric off-cuts",
+      "Paint and stencil makeover",
+      "Convert desk into a potting bench"
+    ]
+  },
+  {
+    "key": "packaging",
+    "label": "Packaging material",
+    "group": "Retail & warehouses",
+    "routes": [
+      "reuse",
+      "resell",
+      "recycle"
+    ],
+    "units": [
+      "kg",
+      "pieces"
+    ],
+    "attributes": [
+      {
+        "key": "material",
+        "label": "Material",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "cardboard",
+          "plastic_film",
+          "bubble_wrap",
+          "thermocol",
+          "wooden_pallet",
+          "plastic_crate",
+          "mixed"
+        ],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "clean_dry",
+        "label": "Clean and dry",
+        "type": "bool",
+        "required": true,
+        "options": [],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "size",
+        "label": "Box / pallet size",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "unit": null,
+        "help": null
+      }
+    ],
+    "shots": [
+      {
+        "key": "full_lot",
+        "label": "Whole lot",
+        "help": "Everything in one frame.",
+        "required": true
+      },
+      {
+        "key": "closeup",
+        "label": "Close-up",
+        "help": "Condition of the material.",
+        "required": true
+      }
+    ],
+    "min_images": 2,
+    "reasons": [
+      {
+        "key": "inbound_packaging",
+        "label": "Came with deliveries"
+      },
+      {
+        "key": "excess_stock",
+        "label": "Excess packaging stock"
+      },
+      {
+        "key": "damaged_goods",
+        "label": "From damaged goods"
+      },
+      {
+        "key": "other",
+        "label": "Other (explain below)"
+      }
+    ],
+    "provenance_required": [],
+    "new_price": {
+      "kg": 60,
+      "pieces": 90
+    },
+    "unit_weight_kg": {
+      "kg": 1,
+      "pieces": 0.8
+    },
+    "scrap_price_per_kg": 9,
+    "co2_kg_per_kg": 1.1,
+    "option_attr": null,
+    "by_option": {},
+    "poolable": false,
+    "pool_keys": [],
+    "color_critical": false,
+    "perishable": false,
+    "reuse_ideas": [
+      "Moving boxes for students",
+      "Seedling trays",
+      "Kids' craft kits",
+      "Pallet furniture"
+    ]
+  },
+  {
+    "key": "food_cooked",
+    "label": "Cooked food (surplus)",
+    "group": "Food",
+    "routes": [
+      "donate"
+    ],
+    "units": [
+      "plates",
+      "packets",
+      "boxes",
+      "kg"
+    ],
+    "attributes": [
+      {
+        "key": "dish_name",
+        "label": "Dish",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "diet",
+        "label": "Type",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "veg",
+          "non_veg",
+          "egg",
+          "vegan",
+          "jain"
+        ],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "cooked_at",
+        "label": "Cooked at",
+        "type": "datetime",
+        "required": true,
+        "options": [],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "storage",
+        "label": "How it is kept now",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "hot_holding",
+          "refrigerated",
+          "room_temp"
+        ],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "packaging",
+        "label": "Packed in",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "sealed_containers",
+          "covered_trays",
+          "bulk_vessel"
+        ],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "allergens",
+        "label": "Allergens (nuts, dairy, gluten...)",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "unit": null,
+        "help": null
+      }
+    ],
+    "shots": [
+      {
+        "key": "food",
+        "label": "Food",
+        "help": "The food itself, clearly visible.",
+        "required": true
+      },
+      {
+        "key": "packaging",
+        "label": "Packaging",
+        "help": "How it is packed / covered.",
+        "required": true
+      }
+    ],
+    "min_images": 2,
+    "reasons": [
+      {
+        "key": "end_of_day",
+        "label": "End-of-day surplus"
+      },
+      {
+        "key": "event_leftover",
+        "label": "Event / wedding leftover"
+      },
+      {
+        "key": "overproduction",
+        "label": "Cooked too much"
+      },
+      {
+        "key": "cancelled_order",
+        "label": "Cancelled bulk order"
+      },
+      {
+        "key": "other",
+        "label": "Other (explain below)"
+      }
+    ],
+    "provenance_required": [],
+    "new_price": {},
+    "unit_weight_kg": {
+      "plates": 0.3,
+      "packets": 0.3,
+      "boxes": 0.5,
+      "kg": 1
+    },
+    "scrap_price_per_kg": 0.0,
+    "co2_kg_per_kg": 2.5,
+    "option_attr": null,
+    "by_option": {},
+    "poolable": false,
+    "pool_keys": [],
+    "color_critical": false,
+    "perishable": true,
+    "reuse_ideas": []
+  },
+  {
+    "key": "other",
+    "label": "Other item",
+    "group": "Anything else",
+    "routes": [
+      "resell",
+      "donate",
+      "reuse",
+      "recycle"
+    ],
+    "units": [
+      "pieces",
+      "kg",
+      "sets",
+      "pairs",
+      "boxes",
+      "litres",
+      "metres"
+    ],
+    "attributes": [
+      {
+        "key": "item_name",
+        "label": "What is it?",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "unit": null,
+        "help": "e.g. Steel water bottle, study lamp, backpack"
+      },
+      {
+        "key": "material",
+        "label": "Main material",
+        "type": "enum",
+        "required": true,
+        "options": [
+          "plastic",
+          "metal",
+          "glass",
+          "wood",
+          "fabric",
+          "paper",
+          "ceramic",
+          "rubber",
+          "electronic",
+          "mixed"
+        ],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "works_as_intended",
+        "label": "Works / usable as it is",
+        "type": "bool",
+        "required": true,
+        "options": [],
+        "unit": null,
+        "help": null
+      },
+      {
+        "key": "size",
+        "label": "Size or capacity",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "unit": null,
+        "help": "e.g. 1 litre, 40 x 30 cm"
+      },
+      {
+        "key": "clean",
+        "label": "Clean and hygienic",
+        "type": "bool",
+        "required": false,
+        "options": [],
+        "unit": null,
+        "help": null
+      }
+    ],
+    "shots": [
+      {
+        "key": "front",
+        "label": "Front",
+        "help": "The whole item, in good light.",
+        "required": true
+      },
+      {
+        "key": "detail",
+        "label": "Close-up or label",
+        "help": "A close-up of any label, brand mark, or wear and damage.",
+        "required": true
+      },
+      {
+        "key": "other_side",
+        "label": "Other side",
+        "help": "The back or another angle.",
+        "required": false
+      }
+    ],
+    "min_images": 2,
+    "reasons": [
+      {
+        "key": "no_longer_needed",
+        "label": "Don't need it any more"
+      },
+      {
+        "key": "unused_gift",
+        "label": "Unused gift"
+      },
+      {
+        "key": "upgrade",
+        "label": "Replaced with a new one"
+      },
+      {
+        "key": "extra",
+        "label": "Have an extra / duplicate"
+      },
+      {
+        "key": "moving",
+        "label": "Moving house"
+      },
+      {
+        "key": "broken",
+        "label": "Broken or damaged"
+      },
+      {
+        "key": "other",
+        "label": "Other (explain below)"
+      }
+    ],
+    "provenance_required": [],
+    "new_price": {},
+    "unit_weight_kg": {
+      "pieces": 0.5,
+      "kg": 1,
+      "sets": 1.5,
+      "pairs": 0.5,
+      "boxes": 2,
+      "litres": 1,
+      "metres": 0.3
+    },
+    "scrap_price_per_kg": 5,
+    "co2_kg_per_kg": 2.0,
+    "option_attr": "material",
+    "by_option": {
+      "plastic": {
+        "co2_kg_per_kg": 3.0,
+        "scrap_price_per_kg": 12
+      },
+      "metal": {
+        "co2_kg_per_kg": 4.0,
+        "scrap_price_per_kg": 30
+      },
+      "glass": {
+        "co2_kg_per_kg": 1.0,
+        "scrap_price_per_kg": 2
+      },
+      "wood": {
+        "co2_kg_per_kg": 0.5,
+        "scrap_price_per_kg": 4
+      },
+      "fabric": {
+        "co2_kg_per_kg": 8.0,
+        "scrap_price_per_kg": 8
+      },
+      "paper": {
+        "co2_kg_per_kg": 1.1,
+        "scrap_price_per_kg": 9
+      },
+      "electronic": {
+        "co2_kg_per_kg": 30.0,
+        "scrap_price_per_kg": 40
+      }
+    },
+    "poolable": false,
+    "pool_keys": [],
+    "color_critical": false,
+    "perishable": false,
+    "reuse_ideas": [
+      "Give it to a friend or neighbour who needs one",
+      "Repurpose it for storage or organising",
+      "Turn it into a planter or decor piece",
+      "Take usable parts for repairs"
+    ]
+  }
+]

@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@import "./w2w-styles.css";
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+

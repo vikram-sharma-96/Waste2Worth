@@ -1,0 +1,6 @@
+{
+  "name": "Waste2Worth — Reuse · Recycle · Resell · Donate",
+  "description": "Waste2Worth: snap your waste and route it to someone who can reuse, recycle, buy or receive it.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
