@@ -241,7 +241,7 @@ function initSeed() {
       seller_id: sellerId,
       category: l.category || "tiles",
       source_type: l.source_type || "business_surplus",
-      route: l.route || (l.category === "food_cooked" ? "donate" : l.category === "metal" ? "recycle" : "resell"),
+      route: l.route || (l.category === "food_cooked" ? "donate" : l.category === "metal" ? "recycle" : l.category === "furniture" || l.category === "fabric" ? "reuse" : "resell"),
       title: l.title,
       description: l.reason_detail || "",
       quantity: l.quantity,
@@ -685,7 +685,15 @@ async function startServer() {
     const { category, route, source_type, q, lat, lng, radius_km = 25, limit = 50 } = req.query;
 
     if (category) list = list.filter((l) => l.category === category);
-    if (route) list = list.filter((l) => l.route === route);
+    if (route) {
+      const routes = String(route)
+        .split(",")
+        .map((s) => s.trim().toLowerCase())
+        .filter(Boolean);
+      if (routes.length > 0) {
+        list = list.filter((l) => routes.includes(l.route.toLowerCase()));
+      }
+    }
     if (source_type) list = list.filter((l) => l.source_type === source_type);
     if (q) {
       const needle = String(q).toLowerCase();
@@ -821,7 +829,7 @@ async function startServer() {
     });
   });
 
-  apiRouter.post("/listings/:id/images", upload.single("file"), (req, res) => {
+  apiRouter.post("/listings/:id/images", upload.single("file") as any, (req, res) => {
     const li = listings.get(Number(req.params.id));
     if (!li) return res.status(404).json({ detail: "listing not found" });
 
@@ -1254,7 +1262,7 @@ async function startServer() {
     });
   });
 
-  apiRouter.post("/food/voice-draft", upload.single("audio"), (req, res) => {
+  apiRouter.post("/food/voice-draft", upload.single("audio") as any, (req, res) => {
     const sellerId = Number(req.body.seller_id) || 1;
     const sampleText = "We have 40 plates hot veg biryani from a corporate lunch cancellation ready for immediate donation.";
     res.json({
@@ -1548,7 +1556,7 @@ async function startServer() {
   });
 
   // 8. AI Vision Intake (Gemini 2.5 Flash + Intelligent Fallback)
-  apiRouter.post("/ai/analyze", upload.array("files", 4), async (req, res) => {
+  apiRouter.post("/ai/analyze", upload.array("files", 4) as any, async (req, res) => {
     const files = req.files as Express.Multer.File[];
     const hint = req.body.hint_category;
     const mfgColor = req.body.manufacturer_color;
